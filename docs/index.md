@@ -1,66 +1,24 @@
-# Welcome to memary 
+# memary 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Open-Source Longterm Memory for Autonomous Agents 
 
-## Code Annotation Examples 
+<!-- insert memary logo -->
 
-## Codeblocks 
+For full documentation visit [our repo](https://github.com/kingjulio8238/memary/tree/ollama-integration) and leave a :fontawesome-regular-star: 
 
-some `code` goes here. <!-- to highlght code -->
+Agents use LLMs that are currently constrained to finite context windows. memary overcomes this limitation by allowing your agents to store a large corpus of information in knowledge graphs, infer user knowledge through our memory modules, and only retrieve relevant information for meaningful responses.
 
-### Plain codeblock 
-
-A plain codeblock: 
-
-<!-- to have entire codeblock -->
-``` 
-some code here 
-def myfunction()
-// some comment 
-``` 
-
-#### Code for a specific 
-
-Some more code with the `py` at the start: 
-
-``` py
-import tensorflow as tf
-def whatever()
-``` 
-
-#### Code with a title 
-``` py title="bubble_sort.py"
-def bubble_sort(items):
-    for i in range(len(items)):
-        for j in range (len(items) -1 - i):
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
+## Installation 
+Make sure you are running python version <= 3.11.9, then run 
+```
+pip install memary
 ```
 
-#### Code with line numbers  
-``` py linenums="1"
-def bubble_sort(items):
-    for i in range(len(items)):
-        for j in range (len(items) -1 - i):
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
+You can also install memary locally: 
+
+i. Create a virtual environment with python version set as specified above 
+
+ii. Install python dependencies: 
 ```
-
-#### Highlight lines 
-``` py hl_lines="2 3"
-def bubble_sort(items):
-    for i in range(len(items)):
-        for j in range (len(items) -1 - i):
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
+pip install -r requirements.txt
 ```
-
-## Icons and Emojis 
-
-:smile: 
-
-:fontawesome-regular-face-laugh-wink: 
-
-:fontawesome-brands-twitter:{ .twitter }
-
-:octicons-heart-fill-24:{ . heart }
