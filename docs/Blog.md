@@ -1,4 +1,4 @@
-# Blogs 
+# Updates 
 
 COMING SOON 
 
