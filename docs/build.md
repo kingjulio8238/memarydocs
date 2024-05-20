@@ -1,9 +1,9 @@
 # Build 
 
-memary assumes the local installation method. memary currently supports the use of:
+memary assumes the local installation method and currently supports any models available through Ollama:
 
-- `Llama 3 8B` running locally using Ollama OR `gpt-3.5-turbo`
-- `LLaVA` running locally using Ollama OR `gpt-4-vision-preview`
+- LLM running locally using Ollama **OR** `gpt-3.5-turbo`
+- Vision model running locally using Ollama **OR** `gpt-4-vision-preview`
 
 memary will default to the locally run models unless explicitly specified. Additionally, memary allows developers to **easily switch between downloaded models** via Ollama 
 
@@ -20,7 +20,7 @@ GOOGLEMAPS_API_KEY=YOUR_API_KEY
 ALPHA_VANTAGE_API_KEY=YOUR_API_KEY
 ```
 
-3. Update user persona which can be found in `streamlit_app/data/user_persona.txt`. Instructions have been provided for customization - **replace curly brackets with relevant information**.
+3. Update user persona which can be found in `streamlit_app/data/user_persona.txt` using the user persona template which can be found in `streamlit_app/data/user_persona_template.txt`. Instructions have been provided for customization - **replace the curly brackets with relevant information**.
 
 4. (Optional) Update system persona, if needed, which can be found in `streamlit_app/data/system_persona.txt`. 
 
