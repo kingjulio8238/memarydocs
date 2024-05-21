@@ -2,7 +2,7 @@
 
 ## How it works 
 
-![memary Outline](images/outline.png) <!-- to fix - deploy on cloud -->
+![memary Outline](https://github.com/kingjulio8238/memary/blob/main/diagrams/system.png?raw=true) 
 
 The above process includes the routing agent, knoweldge graph and memory modules that are all integrated into the `ChatAgent` class located in the `src/agent` directory.
 
@@ -10,8 +10,10 @@ Raw source code for these components can also be found in their respective direc
 
 ## Detailed Component Breakdown 
 
-### Routing Agent <!-- insert pic -->
-To provide developers, who don't have existing agents, access to memary we setup a simple agent implementation. We use the [ReAct agent] (https://react-lm.github.io/) to plan and execute a query given the tools provided. 
+### Routing Agent 
+![Routing Agent](https://github.com/kingjulio8238/memary/blob/main/diagrams/routing_agent.png?raw=true) 
+
+To provide developers, who don't have existing agents, access to memary we setup a simple agent implementation. We use the [ReAct](https://react-lm.github.io/) agent to plan and execute a query given the tools provided. 
 
 While we didn't emphasize equipping the agent with many tools, the **search tool is crucial to retrieve information from the knowledge graph**. This tool queries the knowledge graph for a response based on existing nodes and executes an external search if no related entities exist. Other default agent tools include computer vision powered by LLaVa and a location tool using geococder and google maps. 
 
@@ -47,7 +49,9 @@ Each response from the agent is saved in the knowledge graph. You can view respo
 - Create an LLM Judge that scores the routing agent and provides feedback.
 - Integrate multiprocessing so that the agent can process multiple sub-queries simultaneously. We have open-sourced the query decomposition and reranking code to help with this!
 
-### Knowledge Graph <!-- insert pic -->
+### Knowledge Graph 
+![Knowledge Graph](https://github.com/kingjulio8238/memary/blob/main/diagrams/kg.png?raw=true) 
+
 #### Knowledge graphs ↔ LLMs
 - memary uses a Neo4j graph database to store knoweldge.
 - Llama Index was used to add nodes into the graph store based on documents.
@@ -55,8 +59,8 @@ Each response from the agent is saved in the knowledge graph. You can view respo
 
 #### KG use cases
 - Inject the final agent responses into existing KGs.
-- memary uses a [recursive retrieval] (https://arxiv.org/pdf/2401.18059.pdf) approach to search the KG, which involves determining what the key entities are in the query, building a subgraph of those entities with a maximum depth of 2 away, and finally using that subgraph to build up the context.
-- When faced with multiple key entities in a query, memary uses [multi-hop reasoning] (https://neo4j.com/developer-blog/knowledge-graphs-llms-multi-hop-question-answering/) to join multiple subgraphs into a larger subgraph to search through.
+- memary uses a [recursive](https://arxiv.org/pdf/2401.18059.pdf) retrieval approach to search the KG, which involves determining what the key entities are in the query, building a subgraph of those entities with a maximum depth of 2 away, and finally using that subgraph to build up the context.
+- When faced with multiple key entities in a query, memary uses [multi-hop](https://neo4j.com/developer-blog/knowledge-graphs-llms-multi-hop-question-answering/) reasoning to join multiple subgraphs into a larger subgraph to search through.
 - These techniques reduce latency compared to searching the entire knowledge graph at once.
 
 ``` py title="store in KG" hl_lines="1"
@@ -98,8 +102,10 @@ def check_KG(self, query: str) -> bool:
 - Expand the graph’s capabilities to support multiple modalities, i.e., images.
 - Graph optimizations to reduce latency of search times.
 
-### Memory Module <!-- insert pic -->
-The memory module comprises the **Memory Stream and Entity Knowledge Store.** The memory module was influenced by the design of [K-LaMP] (https://arxiv.org/pdf/2311.06318.pdf) proposed by Microsoft Research.
+### Memory Module 
+![Memory Module](https://github.com/kingjulio8238/memary/blob/main/diagrams/memory_module.png?raw=true) 
+
+The memory module comprises the **Memory Stream and Entity Knowledge Store.** The memory module was influenced by the design of [K-LaMP](https://arxiv.org/pdf/2311.06318.pdf) proposed by Microsoft Research.
 
 #### Memory Stream 
 The Memory Stream captures all entities inserted into the KG and their associated timestamps. This stream reflects the **breadth of the users' knowledge**, i.e., concepts users have had exposure to but no depth of exposure is inferred.
@@ -158,7 +164,7 @@ def _convert_memory_to_knowledge_memory(
 ```
 
 - Highlight Changes Over Time: Identify any significant changes in the entities' ranking or categorization over time. A shift in the most frequently mentioned entities could indicate a change in the user's interests or knowledge.
-- Additional information on the memory module can be found [here] (https://github.com/seyeong-han/KnowledgeGraphRAG)
+- Additional information on the memory module can be found [here](https://github.com/seyeong-han/KnowledgeGraphRAG)
 
 #### Purpose in larger system 
 - Compress/summarize the top N ranked entities in the entity knowledge store and pass to the LLM’s finite context window alongside the agent's response and chat history for inference.
@@ -168,7 +174,7 @@ def _convert_memory_to_knowledge_memory(
 #### Future Contributions 
 We currently extract the top N entities from the entitiy knowledge store and pass these entities into the context window for inference. memary can future benefit from more advanced memory compression techniques such as **passing only entities that are in the agent's response to the context window**. We look forward to related community contributions.
 
-<!-- insert memory compression pic -->
+![Memory Module](https://github.com/kingjulio8238/memary/blob/main/diagrams/memory_compression.png?raw=true)
 
 ### New Context Window <!-- insert new context window -->
 We utilize the the key categorized entities and themes associated with users to tailor agent responses more closely to the user's current interests/preferences and knowledge level/expertise. The new context window is made up of the following: 

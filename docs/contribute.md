@@ -2,17 +2,18 @@
 
 As mentioned, memary will benefit from the following integrations:
 
-- Create an LLM Judge that scores the ReACT agent forming a feedback loop. See [Zooter] (https://arxiv.org/abs/2311.08692) for insights.
+- Create an LLM Judge that scores the ReACT agent forming a feedback loop. See [Zooter](https://arxiv.org/abs/2311.08692) for insights.
 - Expand the knowledge graph’s capabilities to support multiple modalities, i.e., images.
 - Optimize the graph to reduce latency of search times.
 - Instead of extracting the top N entities from the entity knowledge store deploy more advanced memory compression techniques such as extracting only the entities included in the agent’s response.
 
 Currently memary is structured so that the ReAct agent can only process one query at a time. We hope to see **multiprocessing** integrated so that the agent can process many subqueries simultaneously. We expect this to improve the relevancy and accuracy of responses. The source code for both decomposing the query and reranking the many agent responses has been provided, and once multiprocessing has been added to the system, these components can easily be integrated into the main `ChatAgent` class. The diagram below shows how the newly integrated system would work.
 
-<!-- insert pic of memary as a whole with QD & reranking -->
+![memary_final](https://github.com/kingjulio8238/memary/blob/main/diagrams/final.png?raw=true) 
 
 ## Query Decomposition 
-<!-- insert pic of QD -->
+![QD](https://github.com/kingjulio8238/memary/blob/main/diagrams/query_decomposition.png?raw=true) 
+
 ### Why decompose? 
 - User queries are complex and multifaceted, and base-model LLMs are often unable to fully understand all aspects of the query in order to create a succinct and accurate response.
 - Allows an LLM of similar capabilities to answer easier questions and synthesize those answers to provide an improved response.
@@ -41,7 +42,8 @@ responses.append(query_analyzer_with_examples.invoke({"question": question}))
 - Self-Learning: Whenever queries are decomposed, those examples will be appended to the engine’s example store as a **feedback loop** for improved future performance.
 
 ## Reranking 
-<!-- insert pic of reranking -->
+![reranking](https://github.com/kingjulio8238/memary/blob/main/diagrams/reranking_diagram.png?raw=true) 
+
 ### Why rerank responses? 
 Ensure that the various responses to subqueries, when merged, are relevant to the original query prior to decomposition.
 
@@ -54,5 +56,5 @@ Ensure that the various responses to subqueries, when merged, are relevant to th
 - Passes the reranking result to the knowledge graph for storage and to the new context window as one source of context for inference.
 
 ### Future Contributions 
-- Future Benchmarking: Include the Cohere Rerank 3 model and others in the [reranking analysis] (https://docs.google.com/document/d/1gHzvgktqnHcg7wbIuKHr6W5NMYk6UVlJkRQfSqzk9e4/edit). The data used for benchmarking can be found [here] (https://docs.google.com/document/d/1knfJRsoEzjKziilmF_ZwSwMRBvYbF0yNlRdpDteDiW4/edit?usp=sharing). Add to it!
+- Future Benchmarking: Include the Cohere Rerank 3 model and others in the reranking [analysis](https://docs.google.com/document/d/1gHzvgktqnHcg7wbIuKHr6W5NMYk6UVlJkRQfSqzk9e4/edit). The data used for benchmarking can be found [here](https://docs.google.com/document/d/1knfJRsoEzjKziilmF_ZwSwMRBvYbF0yNlRdpDteDiW4/edit?usp=sharing). Add to it!
 

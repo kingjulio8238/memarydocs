@@ -2,8 +2,6 @@
 
 ## Open-Source Longterm Memory for Autonomous Agents 
 
-<!-- insert memary logo -->
-
 For full documentation visit [our repo](https://github.com/kingjulio8238/memary/tree/ollama-integration) and leave a :fontawesome-regular-star: 
 
 Agents use LLMs that are currently constrained to finite context windows. memary overcomes this limitation by allowing your agents to store a large corpus of information in knowledge graphs, infer user knowledge through our memory modules, and only retrieve relevant information for meaningful responses.
