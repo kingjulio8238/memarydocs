@@ -1,7 +1,10 @@
 site_name: memary Documentation
 theme: 
   name: material
-  #TODO: logo to add (kevin to add black logo)
+  #custom_dir: docs/overrides 
+  #extra_css: 
+    #- assets/css/extra.css
+  logo: https://github.com/kingjulio8238/memary/blob/tool-flexibility/diagrams/memary_logo_bw.png?raw=true #need lime background 
   features: 
     - navigation.tabs
     - navigation.sections
@@ -25,10 +28,9 @@ theme:
         icon: material/toggle-switch 
         name: Switch to light mode 
       primary: teal 
-      accent: lime
+      accent: lime #doesn't seem to edit 
 repo_url: https://github.com/kingjulio8238/memary 
-repo_name: memary
-#TODO: repo_version: main
+repo_name: memary 
 
 extra: 
   social: 

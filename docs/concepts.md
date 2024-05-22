@@ -176,7 +176,9 @@ We currently extract the top N entities from the entitiy knowledge store and pas
 
 ![Memory Module](https://github.com/kingjulio8238/memary/blob/main/diagrams/memory_compression.png?raw=true)
 
-### New Context Window <!-- insert new context window -->
+### New Context Window 
+![New_Context_Window](https://github.com/kingjulio8238/memary/blob/tool-flexibility/diagrams/context_window.png?raw=true)
+
 We utilize the the key categorized entities and themes associated with users to tailor agent responses more closely to the user's current interests/preferences and knowledge level/expertise. The new context window is made up of the following: 
 
 - Agent response 
