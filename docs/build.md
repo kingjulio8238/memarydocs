@@ -1,34 +1,42 @@
 # Build 
 
-memary assumes the local installation method and currently supports any models available through Ollama:
 
-- LLM running locally using Ollama (Llama 3 8B/40B as suggested defaults) **OR** `gpt-3.5-turbo`
-- Vision model running locally using Ollama (LLaVA as suggested default) **OR** `gpt-4-vision-preview`
+???+ note "Model Use"
 
-memary will default to the locally run models unless explicitly specified. Additionally, memary allows developers to **easily switch between downloaded models** via Ollama 
+    memary assumes the local installation method and currently supports any models available through **Ollama**:
+
+    - LLM running locally using Ollama (`Llama 3 8B/40B` as suggested defaults) **OR** `gpt-3.5-turbo`
+    - Vision model running locally using Ollama (`LLaVA` as suggested default) **OR** `gpt-4-vision-preview`
+
+    memary will default to the locally run models unless explicitly specified. Additionally, memary allows developers to **easily switch between downloaded models** via Ollama 
+
 
 ## To run memary 
-1. (Optional) If running models locally using Ollama, follow this the instructions in this [repo] (https://github.com/ollama/ollama). 
+- (Optional) If running models locally using Ollama, follow this the instructions in this [repo] (https://github.com/ollama/ollama). 
 
-2. Ensure that an `.env` exists with any necessary API keys and Neo4j credentials 
-```
-OPENAI_API_KEY=YOUR_API_KEY
-NEO4J_PW=YOUR_NEO4J_PW
-NEO4J_URL=YOUR_NEO4J_URL
-PERPLEXITY_API_KEY=YOUR_API_KEY
-GOOGLEMAPS_API_KEY=YOUR_API_KEY
-ALPHA_VANTAGE_API_KEY=YOUR_API_KEY
-```
 
-3. Update user persona which can be found in `streamlit_app/data/user_persona.txt` using the user persona template which can be found in `streamlit_app/data/user_persona_template.txt`. Instructions have been provided for customization - **replace the curly brackets with relevant information**.
+- Ensure that an `.env` exists with any necessary API keys and Neo4j credentials 
 
-4. (Optional) Update system persona, if needed, which can be found in `streamlit_app/data/system_persona.txt`. 
+??? info ".env"
 
-5. Run: 
-```
-cd streamlit_app
-streamlit run app.py
-```
+    ```
+    OPENAI_API_KEY=YOUR_API_KEY
+    NEO4J_PW=YOUR_NEO4J_PW
+    NEO4J_URL=YOUR_NEO4J_URL
+    PERPLEXITY_API_KEY=YOUR_API_KEY
+    GOOGLEMAPS_API_KEY=YOUR_API_KEY
+    ALPHA_VANTAGE_API_KEY=YOUR_API_KEY
+    ```
+
+ - Update user persona which can be found in `streamlit_app/data/user_persona.txt` using the user persona template which can be found in `streamlit_app/data/user_persona_template.txt`. Instructions have been provided for customization - **replace the curly brackets with relevant information**.
+
+- (Optional) Update system persona, if needed, which can be found in `streamlit_app/data/system_persona.txt`. 
+
+!!! tip "Lastly Run"
+    ```
+    cd streamlit_app
+    streamlit run app.py
+    ```
 
 ## Usage 
 ``` py title="memary_usage" hl_lines="1"
@@ -48,7 +56,8 @@ chat_agent = ChatAgent(
     past_chat_json,
 )
 ```
-Pass in subset of `['search', 'vision', 'locate', 'stocks']` as `include_from_defaults` for different set of default tools upon initialization.
+!!! note "Agent Configuration"
+    Pass in subset of `['search', 'vision', 'locate', 'stocks']` as `include_from_defaults` for different set of default tools upon initialization.
 
 ### Adding Custom Tools 
 ``` py title="add_tool" hl_lines="5"
@@ -59,7 +68,8 @@ def multiply(a: int, b: int) -> int:
 chat_agent.add_tool({"multiply": multiply})
 ```
 
-More information about creating custom tools for the LlamaIndex ReAct Agent can be found [here](https://docs.llamaindex.ai/en/stable/examples/agent/react_agent/)
+!!! note "ReAct Custom Tools"
+    More information about creating custom tools for the LlamaIndex ReAct Agent can be found [here](https://docs.llamaindex.ai/en/stable/examples/agent/react_agent/). 
 
 ## Removing Custom Tools 
 ``` py title="remove_tool" hl_lines="5"

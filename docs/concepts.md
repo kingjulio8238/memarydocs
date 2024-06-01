@@ -6,7 +6,8 @@
 
 The above process includes the routing agent, knoweldge graph and memory modules that are all integrated into the `ChatAgent` class located in the `src/agent` directory.
 
-Raw source code for these components can also be found in their respective directories including benchmarks, notebooks, and updates.
+!!! note 
+    Raw source code for these components can also be found in their respective directories including benchmarks, notebooks, and updates.
 
 ## Detailed Component Breakdown 
 
@@ -40,18 +41,17 @@ def search(self, query: str) -> str:
 ```
 
 **Developers will be able to choose to to intialize memary with the default tools or their own at setup**
+ 
+!!! note "Purpose in larger system"
+    Each response from the agent is saved in the knowledge graph. You can view responses from various tools as distinct elements that contribute to the user's knowledge.
 
-#### Purpose in larger system 
-Each response from the agent is saved in the knowledge graph. You can view responses from various tools as distinct elements that contribute to the user's knowledge.
-
-#### Future Contributions 
-- Make your own agent and add as many tools as possible! Each tool expands the agent's ability to answer a wide variety of queries.
-- Create an LLM Judge that scores the routing agent and provides feedback.
-- Integrate multiprocessing so that the agent can process multiple sub-queries simultaneously. We have open-sourced the query decomposition and reranking code to help with this!
+!!! info "Future Contributions"
+    - Make your own agent and add as many tools as possible! Each tool expands the agent's ability to answer a wide variety of queries.
+    - Create an LLM Judge that scores the routing agent and provides feedback.
+    - Integrate multiprocessing so that the agent can process multiple sub-queries simultaneously. We have open-sourced the query decomposition and reranking code to help with this!
 
 ### Knowledge Graph 
 ![Knowledge Graph](https://github.com/kingjulio8238/memary/blob/main/diagrams/kg.png?raw=true) 
-
 #### Knowledge graphs ↔ LLMs
 - memary uses a Neo4j graph database to store knoweldge.
 - Llama Index was used to add nodes into the graph store based on documents.
@@ -95,12 +95,12 @@ def check_KG(self, query: str) -> bool:
         )
 ```
 
-#### Purpose in larger system 
-**Continuously updates the memory modules with each node insertion.**
+!!! note "Purpose in larger system"
+    Continuously updates the memory modules with each node insertion.
 
-#### Future Contributions 
-- Expand the graph’s capabilities to support multiple modalities, i.e., images.
-- Graph optimizations to reduce latency of search times.
+!!! info "Future Contributions"
+    - Expand the graph’s capabilities to support multiple modalities, i.e., images.
+    - Graph optimizations to reduce latency of search times.
 
 ### Memory Module 
 ![Memory Module](https://github.com/kingjulio8238/memary/blob/main/diagrams/memory_module.png?raw=true) 
@@ -166,20 +166,21 @@ def _convert_memory_to_knowledge_memory(
 - Highlight Changes Over Time: Identify any significant changes in the entities' ranking or categorization over time. A shift in the most frequently mentioned entities could indicate a change in the user's interests or knowledge.
 - Additional information on the memory module can be found [here](https://github.com/seyeong-han/KnowledgeGraphRAG)
 
-#### Purpose in larger system 
-- Compress/summarize the top N ranked entities in the entity knowledge store and pass to the LLM’s finite context window alongside the agent's response and chat history for inference.
-- Personalize Responses: Use the key categorized entities and themes associated with the user to tailor agent responses more closely to the user's current interests and knowledge level/expertise.
-- Anticipate Needs: Leverage trends and shifts identified in the summaries to anticipate users' future questions or needs.
+!!! note "Purpose in larger system"
+    - Compress/summarize the top N ranked entities in the entity knowledge store and pass to the LLM’s finite context window alongside the agent's response and chat history for inference.
+    - Personalize Responses: Use the key categorized entities and themes associated with the user to tailor agent responses more closely to the user's current interests and knowledge level/expertise.
+    - Anticipate Needs: Leverage trends and shifts identified in the summaries to anticipate users' future questions or needs.
 
-#### Future Contributions 
-We currently extract the top N entities from the entitiy knowledge store and pass these entities into the context window for inference. memary can future benefit from more advanced memory compression techniques such as **passing only entities that are in the agent's response to the context window**. We look forward to related community contributions.
+!!! info "Future Contributions"
+    We currently extract the top N entities from the entitiy knowledge store and pass these entities into the context window for inference. memary can future benefit from more advanced memory compression techniques such as **passing only entities that are in the agent's response to the context window**. We look forward to related community contributions.
 
 ![Memory Module](https://github.com/kingjulio8238/memary/blob/main/diagrams/memory_compression.png?raw=true)
 
 ### New Context Window 
 ![New_Context_Window](https://github.com/kingjulio8238/memary/blob/tool-flexibility/diagrams/context_window.png?raw=true)
 
-We utilize the the key categorized entities and themes associated with users to tailor agent responses more closely to the user's current interests/preferences and knowledge level/expertise. The new context window is made up of the following: 
+!!! info "Note"
+    We utilize the the key categorized entities and themes associated with users to tailor agent responses more closely to the user's current interests/preferences and knowledge level/expertise. The new context window is made up of the following: 
 
 - Agent response 
 ``` py title="retrieve agent response" hl_lines="1"

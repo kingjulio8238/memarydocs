@@ -7,7 +7,8 @@ As mentioned, memary will benefit from the following integrations:
 - Optimize the graph to reduce latency of search times.
 - Instead of extracting the top N entities from the entity knowledge store deploy more advanced memory compression techniques such as extracting only the entities included in the agent’s response.
 
-Currently memary is structured so that the ReAct agent can only process one query at a time. We hope to see **multiprocessing** integrated so that the agent can process many subqueries simultaneously. We expect this to improve the relevancy and accuracy of responses. The source code for both decomposing the query and reranking the many agent responses has been provided, and once multiprocessing has been added to the system, these components can easily be integrated into the main `ChatAgent` class. The diagram below shows how the newly integrated system would work.
+!!! note "memary's Future Structure" 
+    Currently memary is structured so that the ReAct agent can only process one query at a time. We hope to see **multiprocessing** integrated so that the agent can process many subqueries simultaneously. We expect this to improve the relevancy and accuracy of responses. The source code for both decomposing the query and reranking the many agent responses has been provided, and once multiprocessing has been added to the system, these components can easily be integrated into the main `ChatAgent` class. The diagram below shows how the newly integrated system would work.
 
 ![memary_final](https://github.com/kingjulio8238/memary/blob/main/diagrams/final.png?raw=true) 
 
@@ -34,12 +35,12 @@ responses = [] for question in questions:
 responses.append(query_analyzer_with_examples.invoke({"question": question}))
 ```
 
-### Purpose in larger system 
-- In a parallel system, the agent will be able to parse multiple queries at once. The query decomposer (QD) will pass all subqueries (or original query if no subqueries exist) to the agent at once.
-- Simultaneously, QD will pass the original query to the reranking module to rerank the agent responses based on their relevance to the pre-decomposed query.
+!!! note "Purpose in larger system"
+    - In a parallel system, the agent will be able to parse multiple queries at once. The query decomposer (QD) will pass all subqueries (or original query if no subqueries exist) to the agent at once.
+    - Simultaneously, QD will pass the original query to the reranking module to rerank the agent responses based on their relevance to the pre-decomposed query.
 
-### Future Contributions 
-- Self-Learning: Whenever queries are decomposed, those examples will be appended to the engine’s example store as a **feedback loop** for improved future performance.
+!!! info "Future Contributions"
+    Self-Learning: Whenever queries are decomposed, those examples will be appended to the engine’s example store as a **feedback loop** for improved future performance.
 
 ## Reranking 
 ![reranking](https://github.com/kingjulio8238/memary/blob/main/diagrams/reranking_diagram.png?raw=true) 
@@ -52,9 +53,9 @@ Ensure that the various responses to subqueries, when merged, are relevant to th
 - Next, when testing out Cohere, the model performed better than BM25 but was still not classifying the paragraphs well. The reranking was not always accurate, as it performed well for some questions but was not able to rank others. Furthermore, the ranking was still pretty inaccurate, performing between 0.25 - 0.5 out of 1.
 - Finally, we tested ColBERT rerank, and it was found that this model performed best compared to the other two. ColBERT was able to synthesize results from the given data and ranked them very accurately, with reranking scores between 0.6 - 0.7 out of 1. With this, ColBERT had the most potential, being able to determine which responses were most related and important to answering the query.
 
-### Purpose in larger system 
-- Passes the reranking result to the knowledge graph for storage and to the new context window as one source of context for inference.
+!!! note "Purpose in larger system"
+    Passes the reranking result to the knowledge graph for storage and to the new context window as one source of context for inference.
 
-### Future Contributions 
-- Future Benchmarking: Include the Cohere Rerank 3 model and others in the reranking [analysis](https://docs.google.com/document/d/1gHzvgktqnHcg7wbIuKHr6W5NMYk6UVlJkRQfSqzk9e4/edit). The data used for benchmarking can be found [here](https://docs.google.com/document/d/1knfJRsoEzjKziilmF_ZwSwMRBvYbF0yNlRdpDteDiW4/edit?usp=sharing). Add to it!
+!!! info "Future Contributions"
+    Future Benchmarking: Include the Cohere Rerank 3 model and others in the reranking [analysis](https://docs.google.com/document/d/1gHzvgktqnHcg7wbIuKHr6W5NMYk6UVlJkRQfSqzk9e4/edit). The data used for benchmarking can be found [here](https://docs.google.com/document/d/1knfJRsoEzjKziilmF_ZwSwMRBvYbF0yNlRdpDteDiW4/edit?usp=sharing). Add to it!
 
