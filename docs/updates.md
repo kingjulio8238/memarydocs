@@ -1,5 +1,12 @@
 # Updates 
 
+!!! success "1,000+ Repo Stars" 
+06/02/2024 
+
+- memary hits 1,000+ [repo](https://github.com/kingjulio8238/memary) :fontawesome-regular-star:
+
+- Achieved in 37 days. 
+
 !!! success "Austin AI Meetup"
 05/28/2024
 
@@ -34,6 +41,26 @@
 - PyPi integration: `pip install memary`
 
 - Option to switch between tools 
+
+!!! success "Mentioned in Geek News" 
+05/01/2024 
+
+- Read the discussion [here](https://news.hada.io/topic?id=14583).
+
+!!! success "Trending #16 on YC Hacker News" 
+04/29/2024 
+
+- 16 on YC Hacker News. 
+
+- Read the discussion [here](https://news.ycombinator.com/item?id=40196879). 
+
+!!! success "Mentioned in AI Advances" 
+04/29/2024 
+
+- First community write up on memary! 
+
+- Read the overview [here](https://ai.gopubby.com/beyond-short-term-memory-how-memary-makes-chatbots-remember-6fa59a56773a). 
+
 
 
 <!-- 
