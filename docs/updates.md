@@ -12,6 +12,10 @@
 
 - We presented memary at Austin AI's monthly meetup! 
 
+<img src="https://github.com/kingjulio8238/memary/blob/diagram-adds/diagrams/memary-aitx-1.png?raw=true" alt="memary_aitx_1" width="400" height="300" />
+
+<img src="https://github.com/kingjulio8238/memary/blob/diagram-adds/diagrams/memary-aitx-2.png?raw=true" alt="memary_aitx_2" width="400" height="300" />
+
 !!! success "v0.1.3 Release"
 05/27/2024 
 
