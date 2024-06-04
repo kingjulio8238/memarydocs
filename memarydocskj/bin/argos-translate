@@ -1,0 +1,7 @@
+#!/Users/juliansaks/Desktop/memarydocs/memarydocskj/bin/python
+
+from argostranslate import cli
+
+cli.main()
+
+

@@ -1,0 +1,5 @@
+#!/Users/juliansaks/Desktop/memarydocs/memarydocskj/bin/python
+
+from argostranslate import argospm
+
+argospm.main()

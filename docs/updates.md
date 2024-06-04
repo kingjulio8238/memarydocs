@@ -7,6 +7,8 @@
 
 - Achieved in 37 days. 
 
+- Announcement [here](https://www.linkedin.com/feed/update/urn:li:activity:7203512435914223619/).
+
 !!! success "Austin AI Meetup"
 05/28/2024
 
@@ -21,7 +23,9 @@
 
 - llama 3 8B/40B & LLaVA suggested as default models.
 
-- memary is now a **foundational memory unit** and can support **any agent configurations** by easily adding/removing tools. Watch our release demo [here](https://youtu.be/JhXn8HE56Rw).
+- memary is now a **foundational memory unit** and can support **any agent configurations** by easily adding/removing tools.
+
+- Watch our release demo [here](https://youtu.be/JhXn8HE56Rw).
 
 !!! success "Llama Index Webinar"
 05/23/2024 

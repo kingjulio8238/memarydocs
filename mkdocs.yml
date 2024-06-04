@@ -3,7 +3,7 @@ theme:
   name: material
   #custom_dir: docs/overrides 
   #extra_css: 
-    #- assets/css/extra.css
+    #- css/neoteroi-mkdocs.css
   logo: https://github.com/kingjulio8238/memary/blob/tool-flexibility/diagrams/memary_logo_bw.png?raw=true #need lime background 
   features: 
     - navigation.tabs
@@ -52,6 +52,7 @@ markdown_extensions:
   - pymdownx.superfences 
   - pymdownx.mark 
   - attr_list 
+  #- neoteroi.timeline
   - pymdownx.emoji: 
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
