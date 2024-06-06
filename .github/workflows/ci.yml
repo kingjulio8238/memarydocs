@@ -10,7 +10,7 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest 
     steps:
-      - uses: actions/cache@v3 
+      - uses: actions/checkout@v3 
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
@@ -19,7 +19,7 @@ jobs:
           python-version: 3.x
       - uses: actions/cache@v3 
         with:
-          key: ${{ github.ref }}
+          key: ${{ runner.os }}-build-${{ github.sha }}
           path: .cache 
       - run: pip install mkdocs-material 
       - run: mkdocs gh-deploy --force
