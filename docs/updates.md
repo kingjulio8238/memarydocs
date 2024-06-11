@@ -1,5 +1,10 @@
 # Updates 
 
+!!! success "Alexandria House AI Agents Hackathon" 
+06/08/2024 
+
+- One of the core tools available to the best Munich developers at the [Alexandria](https://www.alexandria.so/) House AI agents hackathon.  
+
 !!! success "1,000+ Repo Stars" 
 06/02/2024 
 
