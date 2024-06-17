@@ -1,22 +1,42 @@
-# Main Concepts 
+# Core Concepts 
 
-## How it works 
+### A comprehensive exploration of memary's core components, highlighting its structural benefits and integral elements. 
 
-![memary Outline](https://github.com/kingjulio8238/memary/blob/main/diagrams/system.png?raw=true) 
+### Principles 
+memary integrates itself onto your existing agents with as little developer implementation as possible. We achieve this sticking to a few principles. 
 
-The above process includes the routing agent, knoweldge graph and memory modules that are all integrated into the `ChatAgent` class located in the `src/agent` directory.
+- Auto-generated Memory 
+    - After initializing memary, agent memory automatically updates as the agent interacts. This type of generation allows us to capture all memories to easily display in your dashboard. Additionally, we allow the combination of databases with little or no code! 
+
+- Memory Modules 
+    - Given a current state of the databases, memary tracks users' preferences which are displayed in your dashboard for analysis. 
+
+- System Improvement 
+    - memary mimics how human memory evolves and learns over time. We will provide the rate of your agents improvement in your dashboard. 
+
+- Rewind Memories 
+    - memary takes care of keeping track of all chats so you can rewind agent executions and access the agents memory at a certain period (coming soon).
+
+<!-- 
+Keep the following UNTIL memary as a service has launched! Then replace with features and minimal details on implementation
+-->
+
+![Memary Outline](https://github.com/kingjulio8238/memary/blob/main/diagrams/system.png?raw=true)
+
+At the time of writing, the above system design includes the routing agent, knoweldge graph and memory modules that are all integrated into the `ChatAgent` class located in the `src/agent` directory.
 
 !!! note 
     Raw source code for these components can also be found in their respective directories including benchmarks, notebooks, and updates.
 
-## Detailed Component Breakdown 
-
-### Routing Agent 
+### Agent 
 ![Routing Agent](https://github.com/kingjulio8238/memary/blob/main/diagrams/routing_agent.png?raw=true) 
 
 To provide developers, who don't have existing agents, access to memary we setup a simple agent implementation. We use the [ReAct](https://react-lm.github.io/) agent to plan and execute a query given the tools provided. 
 
 While we didn't emphasize equipping the agent with many tools, the **search tool is crucial to retrieve information from the knowledge graph**. This tool queries the knowledge graph for a response based on existing nodes and executes an external search if no related entities exist. Other default agent tools include computer vision powered by LLaVa and a location tool using geococder and google maps. 
+
+!!! note "Note"
+    In future version releases, the current ReAct agent (that was used for demo purposes) will be removed from the package so that **memary can support any type of agents from any provider**. 
 
 ``` py title="external_query" hl_lines="1"
 def external_query(self, query: str):
@@ -52,12 +72,12 @@ def search(self, query: str) -> str:
 
 ### Knowledge Graph 
 ![Knowledge Graph](https://github.com/kingjulio8238/memary/blob/main/diagrams/kg.png?raw=true) 
-#### Knowledge graphs ↔ LLMs
+#### Knowledge Graphs ↔ LLMs
 - memary uses a Neo4j graph database to store knoweldge.
 - Llama Index was used to add nodes into the graph store based on documents.
 - Perplexity (mistral-7b-instruct model) was used for external queries.
 
-#### KG use cases
+#### Knowledge Graph Use Cases
 - Inject the final agent responses into existing KGs.
 - memary uses a [recursive](https://arxiv.org/pdf/2401.18059.pdf) retrieval approach to search the KG, which involves determining what the key entities are in the query, building a subgraph of those entities with a maximum depth of 2 away, and finally using that subgraph to build up the context.
 - When faced with multiple key entities in a query, memary uses [multi-hop](https://neo4j.com/developer-blog/knowledge-graphs-llms-multi-hop-question-answering/) reasoning to join multiple subgraphs into a larger subgraph to search through.
@@ -102,7 +122,7 @@ def check_KG(self, query: str) -> bool:
     - Expand the graph’s capabilities to support multiple modalities, i.e., images.
     - Graph optimizations to reduce latency of search times.
 
-### Memory Module 
+### Memory Modules 
 ![Memory Module](https://github.com/kingjulio8238/memary/blob/main/diagrams/memory_module.png?raw=true) 
 
 The memory module comprises the **Memory Stream and Entity Knowledge Store.** The memory module was influenced by the design of [K-LaMP](https://arxiv.org/pdf/2311.06318.pdf) proposed by Microsoft Research.
@@ -282,3 +302,11 @@ def _summarize_contexts(self, total_tokens: int):
         logging.info(f"Contexts summarized successfully. \n summary: {response}")
         logging.info(f"Total tokens after eviction: {total_tokens*EVICTION_RATE}")
 ```
+
+
+<!-- 
+IDEAL PAGE SETUP 
+- take future features into here 
+- have a demo of dashboard for each feature (sneak peaks)
+- clear info for each feature & why its included
+>

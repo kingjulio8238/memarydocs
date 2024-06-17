@@ -1,26 +1,26 @@
 # Quickstart 
 
-## Installation 
-!!! tip "1st Way"
+## Install memary's package  
+!!! tip "1st Option"
     Make sure you are running python version <= 3.11.9, then run 
     ```
     pip install memary
     ```
 
-!!! tip "2nd Way"
+!!! tip "2nd Option"
     You can also install memary locally: 
 
-    i. Create a virtual environment with python version set as specified above 
+    i. Create a virtual environment with the python version set as specified above 
 
     ii. Install python dependencies: 
     ```
     pip install -r requirements.txt
     ```
 
-## Model Use 
+## Specify models used   
 ???+ note "Local OS Support"
 
-    memary assumes installation of local models and we currently supports all models available through **Ollama**:
+    At the time of writing, memary assumes installation of local models and we currently support all models available through **Ollama**:
 
     - LLM running locally using Ollama (`Llama 3 8B/40B` as suggested defaults) **OR** `gpt-3.5-turbo`
     - Vision model running locally using Ollama (`LLaVA` as suggested default) **OR** `gpt-4-vision-preview`
@@ -54,7 +54,7 @@
     streamlit run app.py
     ```
 
-## Additional Functionality 
+## More Basic Functionality  
 ``` py title="memary_usage" hl_lines="1"
 from memary.agent.chat_agent import ChatAgent
 
@@ -73,7 +73,7 @@ chat_agent = ChatAgent(
 )
 ```
 !!! note "Agent Configuration"
-    Pass in subset of `['search', 'vision', 'locate', 'stocks']` as `include_from_defaults` for different set of default tools upon initialization.
+    Pass in subset of the template tools `['search', 'vision', 'locate', 'stocks']` as `include_from_defaults` for different set of default tools upon initialization. Tools can be imported to configure the agents capabilties. 
 
 ### Adding Custom Tools 
 ``` py title="add_tool" hl_lines="5"
@@ -96,5 +96,32 @@ def multiply(a: int, b: int) -> int:
 chat_agent.remove_tool("multiply")
 ```
 
+<!-- TODO: add 3rd example>
+
+<!-- TODO: add api key>
 
 
+
+<!--
+IDEAL PAGE SETUP 
+1 Install the memary SDK 
+2. Add X lines of code 
+   - what happens after lines of code are executed 
+3. set your api key 
+4. run your agent 
+5. Access Memory Dashboard for insights 
+    - demo video 
+
+Basic functionality 
+- 1st ex 
+- 2nd ex 
+- 3rd ex 
+
+Example Code 
+- complete code from sections above 
+- link to google colab notebook to run (demo) - one used for llama index 
+
+Explore more advanced functionality! 
+- 1st ex linked 
+- 2nd ex linked 
+-->

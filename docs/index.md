@@ -4,7 +4,7 @@
 
 !!! success "Give us a star on [our repo](https://github.com/kingjulio8238/memary/tree/ollama-integration) if you find memary helpful 🧠" 
 
-### Empower your AI agents with advanced memory. 
+### Manage Your AI Agents Memory 
 
 !!! info "Why memary"
     Agents promote human-type reasoning and is an advancement towards building AGI and understanding ourselves. Memory is a key component of how humans approach tasks and should be weighted the same when building agentic systems. memary emulates human memory to advance these agentic systems. 
@@ -13,7 +13,7 @@
     -->
 
 ### Memory Dashboard 
-Visualize and analyze your agents memory in your Memory Dashboard. 
+Visualize and analyze your agents memory in your Memory Dashboard (coming soon).
 !!! info "Features"
     - Search your agents' memory. 
     - Understand how your agents learn and improve reasoning over time. 

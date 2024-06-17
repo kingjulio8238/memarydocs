@@ -1,5 +1,35 @@
-# Future Integrations 
+# Future Features 
+### Speak to Your Agents Memory 
+!!! example "COMING SOON"
+memary's **chat interface** offers a portal to access agent memories, integrating capabilitiies such as **searching** (e.g., "What do we know about Emily?"), **removing** memories (e.g., "Remove Emily as a customer"), viewing agent memory **over specified periods** ("What did agent X learn today?") and more all under one umbrella. All this is available in your dashboard. 
 
+### Track Memories 
+!!! example "COMING SOON"
+memary **breaks down agent memory for each response generated**. A list of agent responses with their respective memories will be avilable in your dashbord. Human input (good/bad response) can help your systems improve. 
+
+### Audience Preferences 
+!!! example "COMING SOON"
+Through our proprietary memory modules, we are able to infer audience preferences for certain time periods. Audiences' **best and most recent** preferences are continously updated and will be available in your dashboard.  
+
+### Customizable Memory  
+!!! example "COMING SOON" 
+memary deploys knowledge graphs to **track agent actions**. View, search and configure memory for your purposes. Join different memories together for improved retrieval and toggle between your favorite graph providers. All available in your dashboard.  
+
+### Playgrounds 
+!!! example "COMING SOON" 
+- **Tool** Playground: Simply define python functions and add it as one of your agent tools. View all available tools and remove any if necessary. Do this all in your dashboard!
+- **Model** Playground: Select specific models for tasks across memary to lower system LLM costs. All models deployed on HF will be avilable in your dashboard.  
+- **Benchmarking** Playground: Easily run different memary configurations against each other to evaluate which memory options are more suitable for a specific task. 
+
+### memaryParse 
+!!! example "COMING SOON" 
+Parse and clean your proprietry data before inserting into your agent memory. memary **supports various file types** including table and image extraction. Combine different parsers to form a **parent parser** with advanced capabilities. Also access templates for predefined database schemas and set of node relationships or **define your own!** This is all available in your dashboard. 
+
+### memaryRetrieval 
+!!! example "COMING SOON" 
+Use different techniques to retrieve agent memory. Also combine various retrievers to form a **parent retriever** with advanced capabilities. All avilable in your dashboard. 
+
+<!--
 As mentioned, memary will benefit from the following integrations:
 
 - Create an LLM Judge that scores the ReACT agent forming a feedback loop. See [Zooter](https://arxiv.org/abs/2311.08692) for insights.
@@ -59,3 +89,4 @@ Ensure that the various responses to subqueries, when merged, are relevant to th
 !!! info "Future Contributions"
     Future Benchmarking: Include the Cohere Rerank 3 model and others in the reranking [analysis](https://docs.google.com/document/d/1gHzvgktqnHcg7wbIuKHr6W5NMYk6UVlJkRQfSqzk9e4/edit). The data used for benchmarking can be found [here](https://docs.google.com/document/d/1knfJRsoEzjKziilmF_ZwSwMRBvYbF0yNlRdpDteDiW4/edit?usp=sharing). Add to it!
 
+-->

@@ -21,14 +21,14 @@ theme:
       toggle: 
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode 
-      primary: teal 
-      accent: purple 
+      primary: darkpurple 
+      accent: darkblue 
     - scheme: slate 
       toggle: 
         icon: material/toggle-switch 
         name: Switch to light mode 
-      primary: teal 
-      accent: lime #doesn't seem to edit 
+      primary: darkpurple 
+      accent: darkblue #doesn't seem to edit 
 repo_url: https://github.com/kingjulio8238/memary 
 repo_name: memary 
 
