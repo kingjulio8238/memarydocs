@@ -1,25 +1,31 @@
-# memary 
+# Introduction 
 
-## Open-Source Longterm Memory for Autonomous Agents 
+## Emulating Human Memory for Agentic Systems
 
-For full documentation visit [our repo](https://github.com/kingjulio8238/memary/tree/ollama-integration) and leave a :fontawesome-regular-star: 
+!!! success "Give us a star on [our repo](https://github.com/kingjulio8238/memary/tree/ollama-integration) if you find memary helpful 🧠" 
 
-!!! abstract "Why memary"
+### Empower your AI agents with advanced memory. 
+
+!!! info "Why memary"
+    Agents promote human-type reasoning and is an advancement towards building AGI and understanding ourselves. Memory is a key component of how humans approach tasks and should be weighted the same when building agentic systems. memary emulates human memory to advance these agentic systems. 
+    <!--
     Agents use LLMs that are currently constrained to finite context windows. memary overcomes this limitation by allowing your agents to store a large corpus of information in knowledge graphs, infer user knowledge through our memory modules, and only retrieve relevant information for meaningful responses.
+    -->
 
-## Installation 
-!!! note "1st Way"
-    Make sure you are running python version <= 3.11.9, then run 
-    ```
-    pip install memary
-    ```
+### Memory Dashboard 
+Visualize and analyze your agents memory in your Memory Dashboard. 
+!!! info "Features"
+    - Search your agents' memory. 
+    - Understand how your agents learn and improve reasoning over time. 
+    - Rewind executions to understand changes to agents' memories.
+    - Understand audience preferences. 
+    - Parse proprietry data from multiple file types into agent databases. 
+    - Configure parent parsers.   
+    - View and search agent databases. 
+    - Configure type of models used across the system. 
+    - Be notified when agent memory has been updated.  
 
-!!! note "2nd Way"
-    You can also install memary locally: 
+<!-- 
+To include live demos of each feature 
+--> 
 
-    i. Create a virtual environment with python version set as specified above 
-
-    ii. Install python dependencies: 
-    ```
-    pip install -r requirements.txt
-    ```

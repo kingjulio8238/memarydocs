@@ -1,24 +1,40 @@
-# Build 
+# Quickstart 
 
+## Installation 
+!!! tip "1st Way"
+    Make sure you are running python version <= 3.11.9, then run 
+    ```
+    pip install memary
+    ```
 
-???+ note "Model Use"
+!!! tip "2nd Way"
+    You can also install memary locally: 
 
-    memary assumes the local installation method and currently supports any models available through **Ollama**:
+    i. Create a virtual environment with python version set as specified above 
+
+    ii. Install python dependencies: 
+    ```
+    pip install -r requirements.txt
+    ```
+
+## Model Use 
+???+ note "Local OS Support"
+
+    memary assumes installation of local models and we currently supports all models available through **Ollama**:
 
     - LLM running locally using Ollama (`Llama 3 8B/40B` as suggested defaults) **OR** `gpt-3.5-turbo`
     - Vision model running locally using Ollama (`LLaVA` as suggested default) **OR** `gpt-4-vision-preview`
 
-    memary will default to the locally run models unless explicitly specified. Additionally, memary allows developers to **easily switch between downloaded models** via Ollama 
+    memary will default to the locally run models unless explicitly specified. Additionally, memary allows developers to **easily switch between downloaded models**. 
 
 
-## To run memary 
-- (Optional) If running models locally using Ollama, follow this the instructions in this [repo] (https://github.com/ollama/ollama). 
+## Run memary 
+- (Optional) If running models locally using Ollama, follow the instructions in this [repo](https://github.com/ollama/ollama). 
 
 
 - Ensure that an `.env` exists with any necessary API keys and Neo4j credentials 
 
 ??? info ".env"
-
     ```
     OPENAI_API_KEY=YOUR_API_KEY
     NEO4J_PW=YOUR_NEO4J_PW
@@ -28,7 +44,7 @@
     ALPHA_VANTAGE_API_KEY=YOUR_API_KEY
     ```
 
- - Update user persona which can be found in `streamlit_app/data/user_persona.txt` using the user persona template which can be found in `streamlit_app/data/user_persona_template.txt`. Instructions have been provided for customization - **replace the curly brackets with relevant information**.
+- Update user persona which can be found in `streamlit_app/data/user_persona.txt` using the user persona template which can be found in `streamlit_app/data/user_persona_template.txt`. Instructions have been provided for customization - **replace the curly brackets with relevant information**.
 
 - (Optional) Update system persona, if needed, which can be found in `streamlit_app/data/system_persona.txt`. 
 
@@ -38,7 +54,7 @@
     streamlit run app.py
     ```
 
-## Usage 
+## Additional Functionality 
 ``` py title="memary_usage" hl_lines="1"
 from memary.agent.chat_agent import ChatAgent
 
@@ -71,7 +87,7 @@ chat_agent.add_tool({"multiply": multiply})
 !!! note "ReAct Custom Tools"
     More information about creating custom tools for the LlamaIndex ReAct Agent can be found [here](https://docs.llamaindex.ai/en/stable/examples/agent/react_agent/). 
 
-## Removing Custom Tools 
+### Removing Custom Tools 
 ``` py title="remove_tool" hl_lines="5"
 def multiply(a: int, b: int) -> int:
     """Multiply two integers and returns the result integer"""

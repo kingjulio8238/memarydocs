@@ -1,4 +1,4 @@
-site_name: memary Documentation
+site_name: memary 
 theme: 
   name: material
   #custom_dir: docs/overrides 
