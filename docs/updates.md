@@ -104,3 +104,11 @@ TO INCLUDE:
 - New releases (ongoing)
 - case studies 
  -->
+
+
+ <!--
+ TO ADD ANOTHER PAGE: 
+ - what data is being collected?
+ - How is the data used? 
+ - Opting-Out
+ -->
