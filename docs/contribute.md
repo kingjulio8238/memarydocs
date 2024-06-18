@@ -1,7 +1,7 @@
 # Future Features 
 ### Speak to Your Agents Memory 
 !!! example "COMING SOON"
-memary's **chat interface** offers a portal to access agent memories, integrating capabilitiies such as **searching** (e.g., "What do we know about Emily?"), **removing** memories (e.g., "Remove Emily as a customer"), viewing agent memory **over specified periods** ("What did agent X learn today?") and more all under one umbrella. All this is available in your dashboard. 
+memary's **chat interface** offers a portal to access agent memories, integrating capabilitiies such as **searching**, **removing** and viewing agent memories **over specified periods** and more all under one umbrella available in your dashboard. 
 
 ### Track Memories 
 !!! example "COMING SOON"
