@@ -1,7 +1,5 @@
 # Core Concepts 
 
-### A comprehensive exploration of memary's core components, highlighting its structural benefits and integral elements. 
-
 ### Principles 
 memary integrates itself onto your existing agents with as little developer implementation as possible. We achieve this sticking to a few principles. 
 
@@ -309,4 +307,4 @@ IDEAL PAGE SETUP
 - take future features into here 
 - have a demo of dashboard for each feature (sneak peaks)
 - clear info for each feature & why its included
->
+-->
