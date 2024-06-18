@@ -1,6 +1,6 @@
 # Quickstart 
 
-## Install memary's package  
+## Install memary   
 !!! tip "1st Option"
     Make sure you are running python version <= 3.11.9, then run 
     ```
